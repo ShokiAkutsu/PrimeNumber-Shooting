@@ -23,7 +23,15 @@ public class BlockController : MonoBehaviour
 	{
 		if(collision.gameObject.tag == "Bullet")
 		{
-			_numberController.Subtract();
+			if (collision.gameObject.name.StartsWith("Prime"))
+			{
+				//‘fˆö”•ª‰ğ‚Ì’e
+				Debug.Log("Prime");
+			}
+			else
+			{
+				_numberController.Subtract();
+			}
 		}
 	}
 }

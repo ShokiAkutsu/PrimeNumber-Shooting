@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PrimeNumberGenerator : MonoBehaviour
+public class BlockGenerator : MonoBehaviour
 {
     [SerializeField] GameObject _numberPrefab;
     [SerializeField] float _rengeX;

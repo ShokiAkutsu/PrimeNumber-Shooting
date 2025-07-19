@@ -7,8 +7,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float _speed = 6f;
     Rigidbody2D _rb;
-    //’e”­Ë
+    //’e”­Ë‚É•K—v‚ÈŒ^
     [SerializeField] GameObject _bullet;
+    [SerializeField] GameObject _primeBullet;
     [SerializeField] Transform _mazzle;
     // Start is called before the first frame update
     void Start()
@@ -26,8 +27,9 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetMouseButtonDown(1))
         {
-            //‘fˆö”•ª‰ğ‚Ì’e@
-        }
+			//‘fˆö”•ª‰ğ‚Ì’e
+			Instantiate(_primeBullet, _mazzle);
+		}
     }
 
 	private void FixedUpdate()
