@@ -13,7 +13,8 @@ public class NumberController : MonoBehaviour
 		_text = GetComponent<TextMesh>();
 		//‘f”‚ÌÏ‚©‚çƒ‰ƒ“ƒ_ƒ€‚Å¶¬
 		//‘fˆö”•ª‰ğ‚©‚ço‚µ‚½’è”‚¾‚Á‚½‚ç‚Ç‚¤‚µ‚æ‚¤H
-		_number = 16;
+		var primeNumber = GameObject.Find("PrimeNumber").GetComponent<PrimeNumberProduct>();
+		_number = primeNumber.RandomProduct();
 	}
 
 	void Update()
