@@ -5,19 +5,18 @@ using UnityEngine;
 public class PrimeNumberProduct : MonoBehaviour
 {
     List<int> _primeNumbers = new List<int>();
+	public List<int> PrimeNumbers => _primeNumbers;
+
 	[SerializeField] int _max = 1000;		//レベルデザインでも使えるかも
 
 	private void Start()
 	{
-		//表示できる範囲を10万の位に制限
 		for(int i = 2; i < _max; i++)
 		{
 			bool isPrime = true;
 
 			for(int j = 2; j * j <= i; j++)
 			{
-				if (j % 2 == 0) continue;
-
 				if(i % j == 0)
 				{
 					isPrime = false;
@@ -26,6 +25,8 @@ public class PrimeNumberProduct : MonoBehaviour
 			}
 			if(isPrime) _primeNumbers.Add(i);
 		}
+
+		foreach(int i in _primeNumbers) Debug.Log(i);
 	}
 
 	public int RandomProduct()
@@ -35,6 +36,7 @@ public class PrimeNumberProduct : MonoBehaviour
 		int number = 1;
 		int take = Random.Range(1, 10); //レベルで変化できるようにしたい
 		int limit = _primeNumbers.Count;
+		int million = 1000000;
 
 		for (int i = 0; i < take; i++)
 		{
@@ -44,11 +46,9 @@ public class PrimeNumberProduct : MonoBehaviour
 
 			for(int p = 0; p < limit; p++)
 			{
-				int million = 1000000;
-
-				if((number * _primeNumbers[p]) / million != 0)
+				if((number * _primeNumbers[p]) / million == 0)
 				{
-					limit = p - 1;
+					limit = p + 1;
 					break;
 				}
 				else nextMillion = false;
@@ -57,8 +57,30 @@ public class PrimeNumberProduct : MonoBehaviour
 			if(nextMillion) break;
 		}
 		//戦略として、いくらか減らしたら敵を倒しやすくなるをしたいので
-		//if(true) number += 0; //ここでランダムで増減したい(最初から使うべきかは考え中)
+		//if(true) number += Random.Range(-3, 3); //ここでランダムで増減したい(最初から使うべきかは考え中)
 
 		return number;
+	}
+
+	public int Factorization(int Origin, int Factor)
+	{
+		if(Origin % Factor == 0)
+		{
+			return Origin / Factor;
+		}
+		else
+		{
+			return Origin;
+		}
+	}
+
+	public bool IsPrime(int value)
+	{
+		foreach(int prime in _primeNumbers)
+		{
+			if(prime == value) return true;
+		}
+
+		return false;
 	}
 }

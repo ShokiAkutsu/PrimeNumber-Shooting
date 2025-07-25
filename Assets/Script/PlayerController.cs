@@ -28,7 +28,13 @@ public class PlayerController : MonoBehaviour
         if(Input.GetMouseButtonDown(1))
         {
 			//‘fˆö”•ª‰ğ‚Ì’e
-			Instantiate(_primeBullet, _mazzle);
+			var prime = GameObject.Find("PrimeNumber").GetComponent<PrimeBulletValue>();
+			
+            if (prime.IsPrimeValue())
+            {
+				var bullet = Instantiate(_primeBullet, _mazzle);
+                bullet.GetComponent<PrimeBulletController>().InputPrime = prime.GetValue();
+			}
 		}
     }
 

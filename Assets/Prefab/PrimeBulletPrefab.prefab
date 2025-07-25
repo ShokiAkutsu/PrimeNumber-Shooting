@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8631906454809314507}
   - component: {fileID: 3074244943814301647}
   - component: {fileID: 2771435309952842850}
+  - component: {fileID: 3956718577645126309}
   m_Layer: 0
   m_Name: PrimeBulletPrefab
   m_TagString: Bullet
@@ -156,9 +157,22 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6289468670402132096}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34c06ef175ba9d549a66f69a5a2fec9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 8
+--- !u!114 &3956718577645126309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6289468670402132096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f712ed9ee820914cab80dca4bd9c52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 8

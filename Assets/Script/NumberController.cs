@@ -7,14 +7,13 @@ public class NumberController : MonoBehaviour
 {
 	int _number;
 	TextMesh _text;
+	PrimeNumberProduct _primeNumber;
 
 	void Start()
 	{
 		_text = GetComponent<TextMesh>();
-		//素数の積からランダムで生成
-		//素因数分解から出した定数だったらどうしよう？
-		var primeNumber = GameObject.Find("PrimeNumber").GetComponent<PrimeNumberProduct>();
-		_number = primeNumber.RandomProduct();
+		_primeNumber = GameObject.Find("PrimeNumber").GetComponent<PrimeNumberProduct>();
+		_number = _primeNumber.RandomProduct();
 	}
 
 	void Update()
@@ -29,6 +28,20 @@ public class NumberController : MonoBehaviour
 		if (_number <= 0)
 		{
 			Destroy(transform.parent.gameObject);
+		}
+	}
+
+	public void PrimeFactorization()
+	{
+		//呼び出されたときに、入力されていた値をもらう　もしくは、弾に数値を持たせておく？
+		int index = _primeNumber.Factorization(_number, -9999);
+		
+		if(index != _number)
+		{
+			//出来たら、入力した数字を保持　そして、PrimeBlockを生成
+			//もしくは、PrimeBlock専用の保持スクリプトを作ってもいいのかも？↑で作るかPrimeBlock
+			//で、これの代わりに別のスクリプトをアタッチすることで問題クリアできるのでは？
+			_number = index;
 		}
 	}
 }

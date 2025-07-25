@@ -9,7 +9,7 @@ public class BulletController : MonoBehaviour
     [SerializeField] float _speed = 3f;
 	Rigidbody2D _rb;
 
-	void Start()
+	protected virtual void Start()
 	{
 		_rb = GetComponent<Rigidbody2D>();
 		_rb.gravityScale = 0; // d—Í‚ğ–³Œø‚É‚µ‚Ä©•ª‚Å‘¬“x‚ğŠÇ—

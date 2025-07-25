@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5080933164866610348}
   - component: {fileID: 129791621132524868}
   m_Layer: 0
-  m_Name: NumberCirclePrefab
+  m_Name: NumberBrockPrefab
   m_TagString: Block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

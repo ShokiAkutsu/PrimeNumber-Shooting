@@ -8,7 +8,7 @@ public class BlockController : MonoBehaviour
 {
 	[SerializeField] float _fallSpeed = -1f; // 下向きに動かすためマイナス
 	Rigidbody2D _rb;
-	NumberController _numberController;
+	protected NumberController _numberController;
 
 	void Start()
 	{
@@ -16,6 +16,7 @@ public class BlockController : MonoBehaviour
 		_rb.gravityScale = 0; // 重力を無効にして自分で速度を管理
 		_rb.velocity = new Vector2(0, _fallSpeed);
 
+		//子供のスクリプトを呼び出し
 		_numberController = GetComponentInChildren<NumberController>();
 	}
 
@@ -27,6 +28,8 @@ public class BlockController : MonoBehaviour
 			{
 				//素因数分解の弾
 				Debug.Log("Prime");
+				
+				_numberController.PrimeFactorization();
 			}
 			else
 			{
